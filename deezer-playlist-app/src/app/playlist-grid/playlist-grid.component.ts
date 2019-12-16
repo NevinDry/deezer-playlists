@@ -11,13 +11,13 @@ import { catchError } from 'rxjs/operators';
 })
 export class PlaylistGridComponent implements OnInit {
 
-  private playlist$: Observable<PlaylistHeaderModel[]>;
-  error: Error = null;
+  private playlists$: Observable<PlaylistHeaderModel[]>;
+  private error: Error = null;
 
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit() {
-    this.playlist$ = this.playlistService.getUserPlaylist().pipe(
+    this.playlists$ = this.playlistService.getUserPlaylist().pipe(
       catchError((err:Error) => {
         this.error = err;
         return throwError(err);

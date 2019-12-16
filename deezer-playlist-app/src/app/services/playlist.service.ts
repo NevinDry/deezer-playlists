@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PlaylistHeaderModel } from '../models/PlaylistHeaderModel';
+import { PlaylistDetailsModel } from '../models/PlaylistDetailsModel';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
@@ -14,7 +15,7 @@ export class PlaylistService {
 
   constructor(private http: HttpClient) { }
 
-  getUserPlaylist(number = this.fixedUserId): Observable<PlaylistHeaderModel[]> {
+  getUserPlaylist(userId = this.fixedUserId): Observable<PlaylistHeaderModel[]> {
     return this.http.get(environment.deezerApiUrl + '/user/' + this.fixedUserId + '/playlists').pipe(
       map((res: any) => {
         return res.data.map(item => {
@@ -27,6 +28,23 @@ export class PlaylistService {
       }),
       catchError((res: any) => {
         return throwError(new Error('Error getting playlists'));
+      })
+    );
+  }
+
+  getPlaylistDetails(playlistId: number): Observable<PlaylistDetailsModel> {
+    return this.http.get(environment.deezerApiUrl + '/playlist/' + playlistId).pipe(
+      map((res: any) => {
+          return {
+            id: res.id,
+            title: res.title,
+            coverLink: res.picture_medium,
+            author: res.creator.name,
+            duration: res.duration
+          }
+      }),
+      catchError((res: any) => {
+        return throwError(new Error('Error getting playlist details'));
       })
     );
   }

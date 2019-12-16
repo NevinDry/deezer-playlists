@@ -1,1 +1,15 @@
-<p>playlist-detail works!</p>
+<div class="columns is-multiline playlist-grid" *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+    {{playlist.title}} <br>
+    {{playlist.author}} <br>
+    {{playlist.duration}} <br>
+
+</div>
+
+<ng-template #loadingOrError>
+    <ng-container *ngIf="error; else loading">
+        {{ error }}
+    </ng-container>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
+</ng-template>

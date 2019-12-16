@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { PlaylistDetailsModel } from '../models/PlaylistDetailsModel';
+import { Observable, throwError } from 'rxjs';
+import { PlaylistService } from '../services/playlist.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { catchError, switchMap, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-playlist-detail',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistDetailComponent implements OnInit {
 
-  constructor() { }
+  private playlist$:any;
+  private error: Error = null;
+
+  constructor(private playlistService: PlaylistService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.playlist$ = this.playlistService.getPlaylistDetails(+params.get('id')).pipe(
+        catchError((err:Error) => {
+          this.error = err;
+          return throwError(err);
+        })
+      )
+    });
   }
-
 }

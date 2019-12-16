@@ -1,5 +1,5 @@
-<div class="columns is-multiline playlist-grid" *ngIf="(playlist$ | async) as playlist; else loadingOrError">
-    <div class="column is-4" *ngFor="let item of playlist">
+<div class="columns is-multiline playlist-grid" *ngIf="(playlists$ | async) as playlists; else loadingOrError">
+    <div class="column is-4" *ngFor="let item of playlists">
         <a [routerLink]="['/playlistDetails/', item.id]">
             <div class="card">
                 <div class="card-image">
