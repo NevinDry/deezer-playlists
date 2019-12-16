@@ -1,8 +1,22 @@
-<ng-container *ngIf="(playlist$ | async) as playlist; else loadingOrError">
-    <ng-container *ngFor="let item of playlist">
-        {{item.title}}
-    </ng-container>
-</ng-container>
+<div class="columns is-multiline playlist-grid" *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+    <div class="column is-4" *ngFor="let item of playlist">
+        <a [routerLink]="['/playlistDetails/', item.id]">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image">
+                        <img [src]="item.coverLink" [alt]="item.title">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <h3 class="title">{{item.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</div>
 
 <ng-template #loadingOrError>
     <ng-container *ngIf="error; else loading">

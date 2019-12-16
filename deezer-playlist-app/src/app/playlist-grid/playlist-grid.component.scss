@@ -1,0 +1,17 @@
+@import "../../../node_modules/bulma/sass/utilities/initial-variables";
+
+
+.playlist-grid {
+  .column:hover {
+    .card {
+      cursor: pointer;
+      transition: ease 0.3s;
+      box-shadow: 5px 5px 5px rgba(10, 10, 10, .3);
+      transform: translate(-5px, -5px);
+      .card-content {
+        background-color: $turquoise;
+      }
+    }
+
+  }
+}

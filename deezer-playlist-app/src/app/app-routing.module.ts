@@ -4,7 +4,11 @@ import { PlaylistGridComponent } from './playlist-grid/playlist-grid.component';
 
 
 const routes: Routes = [
-  {path: '', component: PlaylistGridComponent}
+  { path: '', component: PlaylistGridComponent },
+  {
+    path: 'playlistDetails/:id',
+    loadChildren: () => import('./playlist-detail/playlist-detail.module').then(m => m.PlaylistDetailModule)
+  },
 ];
 
 @NgModule({

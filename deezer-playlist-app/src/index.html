@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>DeezerPlaylistApp</title>
@@ -7,7 +8,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
+<style>
+  .loading {
+    height: 0;
+    width: 0;
+    padding: 15px;
+    border: 6px solid #ccc;
+    border-right-color: #00d1b2;
+    border-radius: 22px;
+    animation: rotate 1s infinite linear;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+  @keyframes rotate {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+</style>
+
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="loading"></div>
+  </app-root>
 </body>
+
 </html>
