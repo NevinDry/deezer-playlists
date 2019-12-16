@@ -1,0 +1,14 @@
+<ng-container *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+    <ng-container *ngFor="let item of playlist">
+        {{item.title}}
+    </ng-container>
+</ng-container>
+
+<ng-template #loadingOrError>
+    <ng-container *ngIf="error; else loading">
+        {{ error }}
+    </ng-container>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
+</ng-template>

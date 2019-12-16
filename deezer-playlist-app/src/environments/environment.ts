@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  // Somehow, deezer Api won't accept any request if we are working in localhost (cors). Quick workaround to make it work
+  deezerApiUrl:  "https://cors-anywhere.herokuapp.com/https://api.deezer.com"
 };
 
 /*
