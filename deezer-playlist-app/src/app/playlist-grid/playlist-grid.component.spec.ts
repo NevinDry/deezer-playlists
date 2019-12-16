@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlaylistGridComponent } from './playlist-grid.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PlaylistGridComponent', () => {
   let component: PlaylistGridComponent;
@@ -8,7 +9,10 @@ describe('PlaylistGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlaylistGridComponent ]
+      declarations: [ PlaylistGridComponent ],
+      imports: [
+        HttpClientModule
+      ]
     })
     .compileComponents();
   }));
