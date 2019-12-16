@@ -1,28 +1,31 @@
-<div class="columns is-multiline playlist-grid" *ngIf="(playlists$ | async) as playlists; else loadingOrError">
-    <div class="column is-4" *ngFor="let item of playlists">
-        <a [routerLink]="['/playlistDetails/', item.id]">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img [src]="item.coverLink" [alt]="item.title">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="content">
-                        <h3 class="title">{{item.title}}</h3>
+<div class="container">
+    <h1 class="title is-2"> Deezer Playlists </h1>
+    <div class="columns is-multiline playlist-grid" *ngIf="(playlists$ | async) as playlists; else loadingOrError">
+        <div class="column is-4" *ngFor="let item of playlists">
+            <a [routerLink]="['/playlistDetails/', item.id]">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img [src]="item.coverLink" [alt]="item.title">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h3 class="title">{{item.title}}</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
+            </a>
 
+        </div>
     </div>
-</div>
 
-<ng-template #loadingOrError>
-    <ng-container *ngIf="error; else loading">
-        {{ error }}
-    </ng-container>
-    <ng-template #loading>
-        Loading...
+    <ng-template #loadingOrError>
+        <ng-container *ngIf="error; else loading">
+            {{ error }}
+        </ng-container>
+        <ng-template #loading>
+            Loading...
+        </ng-template>
     </ng-template>
-</ng-template>
+</div>

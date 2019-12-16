@@ -1,15 +1,37 @@
-<div class="columns is-multiline playlist-grid" *ngIf="(playlist$ | async) as playlist; else loadingOrError">
-    {{playlist.title}} <br>
-    {{playlist.author}} <br>
-    {{playlist.duration}} <br>
+<div *ngIf="(playlist$ | async) as playlist; else loadingOrError">
 
+    <nav class="navbar collapse-toolbar is-primary">
+        <div class="columns">
+            <div class="column">
+                <img [src]="playlist.coverLink" [alt]="playlist.title" />
+            </div>
+            <span class="column">
+                {{playlist.title}}
+            </span>
+
+            <span class="column">
+                {{playlist.author}}
+            </span>
+
+            <span class="column">
+                {{playlist.duration | secondsToTimeString}}
+            </span>
+
+        </div>
+    </nav>
+
+    <div class="">
+        <app-track-display [playlistTracks]="playlist.tracks"></app-track-display>
+    </div>
 </div>
 
-<ng-template #loadingOrError>
-    <ng-container *ngIf="error; else loading">
-        {{ error }}
-    </ng-container>
-    <ng-template #loading>
-        Loading...
+<div class="container">
+    <ng-template #loadingOrError>
+        <ng-container *ngIf="error; else loading">
+            {{ error }}
+        </ng-container>
+        <ng-template #loading>
+            Loading...
+        </ng-template>
     </ng-template>
-</ng-template>
+</div>

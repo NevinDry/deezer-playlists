@@ -35,13 +35,21 @@ export class PlaylistService {
   getPlaylistDetails(playlistId: number): Observable<PlaylistDetailsModel> {
     return this.http.get(environment.deezerApiUrl + '/playlist/' + playlistId).pipe(
       map((res: any) => {
-          return {
-            id: res.id,
-            title: res.title,
-            coverLink: res.picture_medium,
-            author: res.creator.name,
-            duration: res.duration
-          }
+        return {
+          id: res.id,
+          title: res.title,
+          coverLink: res.picture_medium,
+          author: res.creator.name,
+          duration: res.duration,
+          tracks: res.tracks.data.map((item: any) => {
+            return {
+              id: item.id,
+              title: item.title,
+              artist: item.artist.name,
+              duration: item.duration
+            }
+          })
+        }
       }),
       catchError((res: any) => {
         return throwError(new Error('Error getting playlist details'));
