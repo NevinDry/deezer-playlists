@@ -8,10 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrackDisplayComponent } from './track-display/track-display.component';
 import { MinuteSecondsPipe } from '../pipes/SecondsToTimeStringPipe';
 import { DetailsHeaderComponent } from './details-header/details-header.component';
+import { InfiniteScrollerDirective } from '../directives/InfiniteScrollDirective';
 
 
 @NgModule({
-  declarations: [PlaylistDetailComponent, TrackDisplayComponent, MinuteSecondsPipe, DetailsHeaderComponent],
+  declarations: [PlaylistDetailComponent, TrackDisplayComponent, MinuteSecondsPipe, DetailsHeaderComponent, InfiniteScrollerDirective],
   imports: [
     CommonModule,
     PlaylistDetailRoutingModule,
@@ -19,7 +20,7 @@ import { DetailsHeaderComponent } from './details-header/details-header.componen
   ],
   providers: [
     PlaylistService,
-    MinuteSecondsPipe
+    MinuteSecondsPipe, 
   ]
 })
 export class PlaylistDetailModule { }

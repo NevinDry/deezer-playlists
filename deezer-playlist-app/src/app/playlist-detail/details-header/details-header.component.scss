@@ -1,9 +1,6 @@
 .collapse-toolbar {
   width: 100%;
   height: 300px;
-  position: fixed;
-  top: 0;
-  transition-duration: 0.2s;
 
   .columns{
     margin: 0;
@@ -11,9 +8,7 @@
 
   .toolbar-image{
     width: 300px;
-    transition-duration: 0.2s;
     img{
-      transition-duration: 0.2s;
       width: 300px;
     }
   }
@@ -23,6 +18,8 @@
     display: flex;
   }
   &.collapsed {
+    position: fixed;
+    top: 0;
     text-align: left;
     height: 60px;
 

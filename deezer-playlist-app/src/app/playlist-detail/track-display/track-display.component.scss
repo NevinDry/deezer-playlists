@@ -1,21 +1,17 @@
 .table-tracks {
   width: 100%;
-  margin-top: 340px;
-  transition-duration: 0.2s;
 
   &.collapsed {
-    margin-top: 200px;
+    margin-top: 350px;
   }
 }
 
 .table-header {
   width: 100%;
-  position: fixed;
-  top: 300px;
-  transition-duration: 0.2s;
-
+  margin-bottom: 0;
   &.collapsed {
     top: 60px;
+    position: fixed;
   }
 
 }

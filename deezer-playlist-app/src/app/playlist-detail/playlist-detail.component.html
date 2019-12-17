@@ -1,7 +1,13 @@
-<div *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+<div *ngIf="(playlist$ | async) as playlist; else loadingOrError"
+    appInfiniteScroller 
+    scrollPerecnt="80"
+    immediateCallback="true" 
+    useRootDocumentScroll="true"
+    [scrollCallback]="scrollCallback"
+>
     <app-details-header [playlist]="playlist"></app-details-header>
 
-    <app-track-display [parentPlaylistId]="playlist.id"></app-track-display>
+    <app-track-display [tracksFromParent]="tracks"></app-track-display>
 </div>
 
 <div class="container">
