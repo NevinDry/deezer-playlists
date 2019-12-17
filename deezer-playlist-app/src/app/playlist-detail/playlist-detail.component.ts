@@ -13,8 +13,11 @@ import { DOCUMENT } from '@angular/common';
 })
 export class PlaylistDetailComponent implements OnInit {
 
-  public playlist$: any;
+  public playlist$: Observable<PlaylistDetailsModel>;
   public error: Error = null;
+  public isFetchingTracks = false;
+  public playlistId: number;
+  public tracksIndex = 0;
 
   constructor(private playlistService: PlaylistService, private route: ActivatedRoute, @Inject(DOCUMENT) document) { }
 
@@ -24,7 +27,7 @@ export class PlaylistDetailComponent implements OnInit {
     let bar = document.getElementsByClassName('collapse-toolbar');
     let trackList = document.getElementsByClassName('table-tracks');
     let trackListTh = document.getElementsByClassName('table-header');
-    if (window.pageYOffset > 80) {
+    if (window.scrollY > 1) {
       bar[0].classList.add('collapsed');
       trackList[0].classList.add('collapsed');  
       trackListTh[0].classList.add('collapsed');    
@@ -38,7 +41,8 @@ export class PlaylistDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.playlist$ = this.playlistService.getPlaylistDetails(+params.get('id')).pipe(
+      this.playlistId = +params.get('id');
+      this.playlist$ = this.playlistService.getPlaylistDetails(this.playlistId).pipe(
         catchError((err: Error) => {
           this.error = err;
           return throwError(err);
@@ -46,4 +50,6 @@ export class PlaylistDetailComponent implements OnInit {
       )
     });
   }
+
+  
 }

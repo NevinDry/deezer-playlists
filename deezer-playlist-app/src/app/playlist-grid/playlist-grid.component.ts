@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PlaylistHeaderModel } from '../models/PlaylistHeaderModel';
 import { Observable, throwError } from 'rxjs';
 import { PlaylistService } from '../services/playlist.service';
@@ -11,6 +11,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class PlaylistGridComponent implements OnInit {
 
+
   public playlists$: Observable<PlaylistHeaderModel[]>;
   public error: Error = null;
 
@@ -18,7 +19,7 @@ export class PlaylistGridComponent implements OnInit {
 
   ngOnInit() {
     this.playlists$ = this.playlistService.getUserPlaylist().pipe(
-      catchError((err:Error) => {
+      catchError((err: Error) => {
         this.error = err;
         return throwError(err);
       })

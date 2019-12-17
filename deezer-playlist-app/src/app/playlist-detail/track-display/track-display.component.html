@@ -9,13 +9,17 @@
     </thead>
 </table>
 
-<table class="table table-tracks">
+<table *ngIf="tracks.length > 0; else loading" class="table table-tracks">
     <tbody>
         <tr *ngFor="let item of tracks; let i = index">
-            <td>{{i}}</td>
+            <td>{{i+1}}</td>
             <td>{{item.title}}</td>
             <td>{{item.artist}}</td>
             <td>{{item.duration | secondsToTimeString}}</td>
         </tr>
     </tbody>
 </table>
+<ng-template #loading>
+    <div class="loading"></div>
+</ng-template>
+

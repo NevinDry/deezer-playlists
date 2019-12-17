@@ -1,7 +1,7 @@
-<div id="app-details" *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+<div *ngIf="(playlist$ | async) as playlist; else loadingOrError">
     <app-details-header [playlist]="playlist"></app-details-header>
 
-    <app-track-display [playlistTracks]="playlist.tracks"></app-track-display>
+    <app-track-display [parentPlaylistId]="playlist.id"></app-track-display>
 </div>
 
 <div class="container">
@@ -10,7 +10,7 @@
             {{ error }}
         </ng-container>
         <ng-template #loading>
-            Loading...
+            <div class="loading"></div>
         </ng-template>
     </ng-template>
 </div>

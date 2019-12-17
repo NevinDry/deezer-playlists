@@ -1,31 +1,31 @@
 
 
 <header *ngIf="playlistDetails" class="collapse-toolbar has-background-primary">
-    <div class="columns is-full-height">
-        <div class="toolbar-image">
-            <img [src]="playlistDetails.coverLink" [alt]="playlistDetails.title" />
-        </div>
-        <div class="column toolbar-text ">
-            <div class="columns is-full-width is-mobile">
-                <div class="column">
-                    <span class="title is-6">Title</span><br />
-                    <h3 class="title is-4">{{playlistDetails.title}}</h3>
-                </div>
-
-                <div class="column">
-                    <span class="title is-6">Author</span><br />
-                    <h3 class="title is-4">{{playlistDetails.author}}</h3>
-                </div>
-
-                <div class="column">
-                    <span class="title is-6">Duration</span><br />
-
-                    <h3 class="title is-4">{{playlistDetails.duration | secondsToTimeString}}</h3>
-                </div>
-
+<div class="columns is-full-height">
+    <div class="toolbar-image">
+        <img [src]="playlistDetails.coverLink" [alt]="playlistDetails.title" />
+    </div>
+    <div class="column toolbar-text ">
+        <div class="columns is-full-width is-mobile">
+            <div class="column">
+                <span class="title is-6">Title</span><br />
+                <h3 class="title is-4">{{playlistDetails.title}}</h3>
             </div>
+
+            <div class="column">
+                <span class="title is-6">Author</span><br />
+                <h3 class="title is-4">{{playlistDetails.author}}</h3>
+            </div>
+
+            <div class="column">
+                <span class="title is-6">Duration</span><br />
+
+                <h3 class="title is-4">{{playlistDetails.duration | secondsToTimeString}}</h3>
+            </div>
+
         </div>
     </div>
+</div>
 
 
 </header>

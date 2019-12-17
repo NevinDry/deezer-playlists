@@ -7,5 +7,4 @@ export class PlaylistDetailsModel {
     title: string;
     author: string;
     duration: number;
-    tracks: PlaylistTrackModel[];
   }
