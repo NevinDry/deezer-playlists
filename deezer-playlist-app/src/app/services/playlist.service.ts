@@ -15,8 +15,8 @@ export class PlaylistService {
 
   constructor(private http: HttpClient) { }
 
-  getUserPlaylist(userId = this.fixedUserId): Observable<PlaylistHeaderModel[]> {
-    return this.http.get(environment.deezerApiUrl + '/user/' + this.fixedUserId + '/playlists').pipe(
+  getUserPlaylist(userId:number = this.fixedUserId): Observable<PlaylistHeaderModel[]> {
+    return this.http.get(environment.deezerApiUrl + '/user/' + userId + '/playlists').pipe(
       map((res: any) => {
         return res.data.map(item => {
           return {

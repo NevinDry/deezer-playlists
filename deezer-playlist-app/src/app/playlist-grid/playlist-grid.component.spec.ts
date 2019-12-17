@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlaylistGridComponent } from './playlist-grid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 describe('PlaylistGridComponent', () => {
   let component: PlaylistGridComponent;
@@ -11,7 +12,8 @@ describe('PlaylistGridComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PlaylistGridComponent ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        RouterModule.forRoot([])
       ]
     })
     .compileComponents();
