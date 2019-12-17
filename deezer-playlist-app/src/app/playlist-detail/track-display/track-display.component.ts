@@ -7,7 +7,7 @@ import { PlaylistTrackModel } from 'src/app/models/PlaylistTrackModel';
   styleUrls: ['./track-display.component.scss']
 })
 export class TrackDisplayComponent implements OnInit {
-  tracks: PlaylistTrackModel[];
+  public tracks: PlaylistTrackModel[];
 
   constructor() { }
 

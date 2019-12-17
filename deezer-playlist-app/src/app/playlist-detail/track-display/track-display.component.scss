@@ -1,3 +1,39 @@
-.table-tracks{
+.table-tracks {
+  width: 100%;
+  margin-top: 340px;
+  transition-duration: 0.2s;
+
+  &.collapsed {
+    margin-top: 200px;
+  }
+}
+
+.table-header {
+  width: 100%;
+  position: fixed;
+  top: 300px;
+  transition-duration: 0.2s;
+
+  &.collapsed {
+    top: 60px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .table-tracks {
     width: 100%;
+
+    &.collapsed {
+      margin-top: 240px;
+    }
+  }
+
+  .table-header {
+
+    &.collapsed {
+      top: 100px;
+    }
+
+  }
 }

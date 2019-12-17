@@ -1,28 +1,7 @@
-<div *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+<div id="app-details" *ngIf="(playlist$ | async) as playlist; else loadingOrError">
+    <app-details-header [playlist]="playlist"></app-details-header>
 
-    <nav class="navbar collapse-toolbar is-primary">
-        <div class="columns">
-            <div class="column">
-                <img [src]="playlist.coverLink" [alt]="playlist.title" />
-            </div>
-            <span class="column">
-                {{playlist.title}}
-            </span>
-
-            <span class="column">
-                {{playlist.author}}
-            </span>
-
-            <span class="column">
-                {{playlist.duration | secondsToTimeString}}
-            </span>
-
-        </div>
-    </nav>
-
-    <div class="">
-        <app-track-display [playlistTracks]="playlist.tracks"></app-track-display>
-    </div>
+    <app-track-display [playlistTracks]="playlist.tracks"></app-track-display>
 </div>
 
 <div class="container">

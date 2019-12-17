@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailsHeaderComponent } from './details-header.component';
+import { MinuteSecondsPipe } from 'src/app/pipes/SecondsToTimeStringPipe';
 
 describe('DetailsHeaderComponent', () => {
   let component: DetailsHeaderComponent;
@@ -8,7 +9,7 @@ describe('DetailsHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailsHeaderComponent ]
+      declarations: [ DetailsHeaderComponent, MinuteSecondsPipe ], providers:[ MinuteSecondsPipe]
     })
     .compileComponents();
   }));

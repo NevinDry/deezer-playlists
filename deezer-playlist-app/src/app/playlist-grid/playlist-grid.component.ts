@@ -11,8 +11,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class PlaylistGridComponent implements OnInit {
 
-  private playlists$: Observable<PlaylistHeaderModel[]>;
-  private error: Error = null;
+  public playlists$: Observable<PlaylistHeaderModel[]>;
+  public error: Error = null;
 
   constructor(private playlistService: PlaylistService) { }
 

@@ -7,10 +7,11 @@ import { PlaylistService } from '../services/playlist.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TrackDisplayComponent } from './track-display/track-display.component';
 import { MinuteSecondsPipe } from '../pipes/SecondsToTimeStringPipe';
+import { DetailsHeaderComponent } from './details-header/details-header.component';
 
 
 @NgModule({
-  declarations: [PlaylistDetailComponent, TrackDisplayComponent, MinuteSecondsPipe],
+  declarations: [PlaylistDetailComponent, TrackDisplayComponent, MinuteSecondsPipe, DetailsHeaderComponent],
   imports: [
     CommonModule,
     PlaylistDetailRoutingModule,
