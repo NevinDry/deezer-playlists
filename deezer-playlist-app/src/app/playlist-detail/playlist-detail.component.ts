@@ -15,7 +15,6 @@ import { PlaylistTrackModel } from '../models/PlaylistTrackModel';
 export class PlaylistDetailComponent implements OnInit {
 
   public playlist$: Observable<PlaylistDetailsModel>;
-  public playlist: PlaylistDetailsModel[];
   public error: Error = null;
   public playlistId: number;
 
@@ -29,23 +28,6 @@ export class PlaylistDetailComponent implements OnInit {
   constructor(private playlistService: PlaylistService, private route: ActivatedRoute, @Inject(DOCUMENT) document) {
     this.scrollCallback = this.fetchingNewTracks.bind(this);
    }
-
-
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(e) {
-    let bar = document.getElementsByClassName('collapse-toolbar');
-    let trackList = document.getElementsByClassName('table-tracks');
-    let trackListTh = document.getElementsByClassName('table-header');
-    if (window.scrollY > 242) {
-      bar[0].classList.add('collapsed');
-      trackList[0].classList.add('collapsed');
-      trackListTh[0].classList.add('collapsed');
-    } else if (window.scrollY != 0) {
-      bar[0].classList.remove('collapsed');
-      trackList[0].classList.remove('collapsed');
-      trackListTh[0].classList.remove('collapsed');
-    }
-  }
 
 
   ngOnInit() {

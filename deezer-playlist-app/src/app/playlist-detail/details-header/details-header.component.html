@@ -1,6 +1,7 @@
 
 
-<header *ngIf="playlistDetails" class="collapse-toolbar has-background-primary">
+<header *ngIf="playlistDetails" class="collapse-toolbar has-background-primary" appCollapseOnScroll scrollpx="272">
+
 <div class="columns is-full-height">
     <div class="toolbar-image">
         <img [src]="playlistDetails.coverLink" [alt]="playlistDetails.title" />

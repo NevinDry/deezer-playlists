@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PlaylistTrackModel } from 'src/app/models/PlaylistTrackModel';
 
 @Component({
@@ -21,5 +21,5 @@ export class TrackDisplayComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 }

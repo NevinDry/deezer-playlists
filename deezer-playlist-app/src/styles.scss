@@ -1,14 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body{
-    height: auto;
-    background-color: beige;
+html,
+body {
+  height: auto;
+  background-color: beige;
 }
 
-  .columns.is-full-width{
-      width: 100%;
-  }
+.columns.is-full-width {
+  width: 100%;
+}
 
-  .is-full-height{
-      height: 100%;
-  }
+.is-full-height {
+  height: 100%;
+}
+
+tr .is-1 {
+  width: 8.33333%;
+}
+
+tr .is-2 {
+  width: 16.66667%;
+}
+
+tr .is-3 {
+  width: 25%;
+}
+
+tr .is-4 {
+  width: 33.33333%;
+}
+
+
