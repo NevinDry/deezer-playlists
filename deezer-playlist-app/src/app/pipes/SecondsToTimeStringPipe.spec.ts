@@ -1,6 +1,6 @@
 import { MinuteSecondsPipe } from 'src/app/pipes/SecondsToTimeStringPipe';
 
-describe('MinuteSecondsPipe', () => {
+describe('MinuteSecondsPipe Unit Test', () => {
     let pipe: MinuteSecondsPipe;
   
     beforeEach(() => {

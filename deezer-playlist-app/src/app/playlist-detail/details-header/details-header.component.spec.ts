@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DetailsHeaderComponent } from './details-header.component';
 import { MinuteSecondsPipe } from 'src/app/pipes/SecondsToTimeStringPipe';
 
-describe('DetailsHeaderComponent', () => {
+describe('DetailsHeaderComponent creation', () => {
   let component: DetailsHeaderComponent;
   let fixture: ComponentFixture<DetailsHeaderComponent>;
 

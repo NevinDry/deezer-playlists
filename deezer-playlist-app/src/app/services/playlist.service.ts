@@ -12,7 +12,7 @@ import { PlaylistTrackModel } from '../models/PlaylistTrackModel';
 })
 export class PlaylistService {
 
-  private fixedUserId = 5;
+  public fixedUserId = 5;
 
   constructor(private http: HttpClient) { }
 
@@ -20,14 +20,10 @@ export class PlaylistService {
     return this.http.get(environment.deezerApiUrl + '/user/' + userId + '/playlists').pipe(
       map((res: any) => {
         return res.data.map(item => {
-          return {
-            id: item.id,
-            title: item.title,
-            coverLink: item.picture_medium
-          }
+          return new PlaylistHeaderModel(item.id, item.picture_medium,item.title);
         })
       }),
-      catchError((res: any) => {
+      catchError((err: any) => {
         return throwError(new Error('Error getting playlists'));
       })
     );
@@ -35,16 +31,10 @@ export class PlaylistService {
 
   getPlaylistDetails(playlistId: number): Observable<PlaylistDetailsModel> {
     return this.http.get(environment.deezerApiUrl + '/playlist/' + playlistId).pipe(
-      map((res: any) => {
-        return {
-          id: res.id,
-          title: res.title,
-          coverLink: res.picture_medium,
-          author: res.creator.name,
-          duration: res.duration,       
-        }
+      map((item: any) => {
+        return new PlaylistDetailsModel(item.id, item.picture_medium, item.title, item.creator.name, item.duration);
       }),
-      catchError((res: any) => {
+      catchError((err: any) => {
         return throwError(new Error('Error getting playlist details'));
       })
     );
@@ -54,12 +44,7 @@ export class PlaylistService {
     return this.http.get(environment.deezerApiUrl + '/playlist/' + playlistId + '/tracks?index=' + tracksIndex + '&limit=' + trackCount).pipe(
       map((res: any) => {
         return res.data.map((item: any) => {
-            return {
-              id: item.id,
-              title: item.title,
-              artist: item.artist.name,
-              duration: item.duration
-            }
+          return new PlaylistTrackModel(item.id ,item.title, item.artist.name, item.duration);
           })       
       }),
       catchError((res: any) => {
