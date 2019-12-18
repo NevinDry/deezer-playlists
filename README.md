@@ -3,12 +3,15 @@
 https://deezer-playlist-app.etiennepuissant.eu/
 
 # Serve App
-go in deezer-playlist-app folder and
+
+go in deezer-playlist-app folder
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 # Run tests
-go in deezer-playlist-app folder and
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+go in deezer-playlist-app folder
+
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 # Remarque concernant l'API Deezer :

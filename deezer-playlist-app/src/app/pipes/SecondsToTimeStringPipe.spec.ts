@@ -15,7 +15,7 @@ describe('MinuteSecondsPipe Unit Test', () => {
         expect(pipe.transform(245)).toMatch('00:04:05');
     });
 
-    it('Should transform 3665 seconds into 00:04:05', () => {
+    it('Should transform 3665 seconds into 01:01:05', () => {
         expect(pipe.transform(3665)).toMatch('01:01:05');
     });
 

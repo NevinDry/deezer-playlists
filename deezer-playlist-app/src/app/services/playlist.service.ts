@@ -17,7 +17,7 @@ export class PlaylistService {
   constructor(private http: HttpClient) { }
 
   getUserPlaylist(userId: number = this.fixedUserId): Observable<PlaylistHeaderModel[]> {
-    return this.http.get(environment.deezerApiUrl + '/user/' + userId + '/playlists').pipe(
+    return this.http.get(`${environment.deezerApiUrl}/user/${userId}/playlists`).pipe(
       map((res: any) => {
         return res.data.map(item => {
           return new PlaylistHeaderModel(item.id, item.picture_medium,item.title);
@@ -30,7 +30,7 @@ export class PlaylistService {
   }
 
   getPlaylistDetails(playlistId: number): Observable<PlaylistDetailsModel> {
-    return this.http.get(environment.deezerApiUrl + '/playlist/' + playlistId).pipe(
+    return this.http.get(`${environment.deezerApiUrl}/playlist/${playlistId}`).pipe(
       map((item: any) => {
         return new PlaylistDetailsModel(item.id, item.picture_medium, item.title, item.creator.name, item.duration, item.nb_tracks);
       }),
@@ -41,7 +41,7 @@ export class PlaylistService {
   }
 
   getPlaylistTracksFromIndex(playlistId: number, tracksIndex: number, trackCount:number): Observable<PlaylistTrackModel[]> {
-    return this.http.get(environment.deezerApiUrl + '/playlist/' + playlistId + '/tracks?index=' + tracksIndex + '&limit=' + trackCount).pipe(
+    return this.http.get(`${environment.deezerApiUrl}/playlist/${playlistId}/tracks?index=${tracksIndex}&limit=${trackCount}`).pipe(
       map((res: any) => {
         return res.data.map((item: any) => {
           return new PlaylistTrackModel(item.id ,item.title, item.artist.name, item.duration);
