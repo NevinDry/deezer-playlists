@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-
-  // Somehow, deezer Api won't accept any request if we are working in localhost (cors). Quick workaround to make it work
+  // Quick workaround to avoid CORS errors, Deezer API does not sent Access-Control-Allow-Origin
   deezerApiUrl:  "https://cors-anywhere.herokuapp.com/https://api.deezer.com"
 };
 

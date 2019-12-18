@@ -52,4 +52,8 @@ export class PlaylistService {
       })
     );
   }
+
+  getFixedUserId(){
+    return this.fixedUserId;
+  }
 }

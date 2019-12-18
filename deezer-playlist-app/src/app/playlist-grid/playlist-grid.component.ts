@@ -14,8 +14,11 @@ export class PlaylistGridComponent implements OnInit {
 
   public playlists$: Observable<PlaylistHeaderModel[]>;
   public error: Error = null;
+  userId: number = null;
 
-  constructor(private playlistService: PlaylistService) { }
+  constructor(private playlistService: PlaylistService) {
+    this.userId = this.playlistService.getFixedUserId();
+  }
 
   ngOnInit() {
     this.playlists$ = this.playlistService.getUserPlaylist().pipe(

@@ -1,7 +1,7 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Deezer App e2e tests', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -10,7 +10,22 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('deezer-playlist-app app is running!');
+    expect(page.getTitleText()).toContain('Deezer Playlists from');
+  });
+
+  it('should display playlist cards', () => {
+    page.navigateTo();
+    expect(page.getOpenGridView()).toBeTruthy();
+    expect(page.getAllCardElement().count()).toBeGreaterThan(0);
+  });
+
+  it('should open  details view from a particular playlist', () => {
+    page.navigateTo();
+    page.getFirstCardElement().click();
+
+    expect(page.getOpenDetailView()).toBeTruthy();
+    expect(page.getOpenDetailHeader()).toBeTruthy();
+    expect(page.getOpenDetailTracks()).toBeTruthy();
   });
 
   afterEach(async () => {

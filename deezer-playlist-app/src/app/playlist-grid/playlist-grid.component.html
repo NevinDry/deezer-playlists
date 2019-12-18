@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="title is-2"> Deezer Playlists from user {{playlistService.fixedUserId}}</h1>
+    <h1 class="title is-2"> Deezer Playlists {{userId ? 'from user '+ userId : ''}}</h1>
     <div class="columns is-multiline playlist-grid" *ngIf="(playlists$ | async) as playlists; else loadingOrError">
         <div class="column is-4" *ngFor="let item of playlists">
             <a [routerLink]="['/playlistDetails/', item.id]">

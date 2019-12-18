@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  deezerApiUrl:  "https://api.deezer.com"
-
+  // Quick workaround to avoid CORS errors, Deezer API does not sent Access-Control-Allow-Origin
+  deezerApiUrl:  "https://cors-anywhere.herokuapp.com/https://api.deezer.com"
 };
