@@ -14,6 +14,9 @@ go in deezer-playlist-app folder
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+
 # Remarque concernant l'API Deezer :
 
 Au cours du développement, j'ai remarqué que l'API de Deezer renvoyait des réponses incohérantes.
