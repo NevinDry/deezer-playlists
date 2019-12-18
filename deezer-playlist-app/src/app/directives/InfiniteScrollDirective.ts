@@ -24,8 +24,6 @@ export class InfiniteScrollerDirective implements AfterViewInit {
 
     private userScrolledDown$;
 
-    private requestStream$;
-
     private requestOnScroll$;
 
     @Input()

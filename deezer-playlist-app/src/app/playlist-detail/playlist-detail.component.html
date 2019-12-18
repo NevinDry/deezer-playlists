@@ -1,4 +1,4 @@
-<div *ngIf="(playlist$ | async) as playlist; else loadingOrError"
+<div *ngIf="playlist; else loadingOrError"
     appInfiniteScroller 
     scrollPerecnt="80"
     immediateCallback="true" 
