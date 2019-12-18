@@ -5,8 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MinuteSecondsPipe implements PipeTransform {
 
-    transform(value: number): string {
-        return new Date(value * 1000).toISOString().substr(11, 8);
-    }
+  transform(value: number): string {
+    var pad = function (input) { return input < 10 ? "0" + input : input; };
+    return [
+      pad(Math.floor(value / 3600)),
+      pad(Math.floor(value % 3600 / 60)),
+      pad(Math.floor(value % 60)),
+    ].join(':');
+  }
 
 }
